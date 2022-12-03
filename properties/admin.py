@@ -1,9 +1,9 @@
 from django.contrib import admin
-from .models import Properties
+from .models import Property
 
-class PropertiesAdmin(admin.ModelAdmin):
-    list_display = ('name', 'price', 'image', 'description', 'location', 'size', 'created', 'updated')
+class PropertyAdmin(admin.ModelAdmin):
+    list_display = ('name', 'price', 'image', 'description', 'location', 'isFeatured', 'images', 'size', 'created', 'updated')
 
 # Register your models here.
 
-admin.site.register(Properties, PropertiesAdmin)
+admin.site.register(Property, PropertyAdmin)

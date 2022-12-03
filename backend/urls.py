@@ -21,7 +21,7 @@ from properties import views
 from backend import settings
 
 router = routers.DefaultRouter()
-router.register(r'properties', views.PropertiesView, 'properties')
+router.register(r'properties', views.PropertyView, 'properties')
 
 urlpatterns = [
     path('admin/', admin.site.urls),

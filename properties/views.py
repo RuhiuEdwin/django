@@ -1,9 +1,9 @@
 import json
 from django.shortcuts import render
 from rest_framework import viewsets
-from .serializers import PropertiesSerializer
-from .models import Properties
-from .models import MultipleImage
+from .serializers import PropertySerializer
+from .models import Property
+from .models import PropertyImages
 # from firebase import serviceAccount
 # import pyrebase
 
@@ -25,14 +25,6 @@ from .models import MultipleImage
 
 # Create your views here.
 
-class PropertiesView(viewsets.ModelViewSet):
-    serializer_class = PropertiesSerializer
-    queryset = Properties.objects.all()
-
-def upload(request):
-    if request.method == "POST":
-        images = request.FILES.getlist('images')
-        for image in images:
-            MultipleImage.objects.create(images=image)
-    images = MultipleImage.objects.all()
-    return render(request, 'index.html', {'images': images})
+class PropertyView(viewsets.ModelViewSet):
+    queryset = Property.objects.all()
+    serializer_class = PropertySerializer
